@@ -1,0 +1,49 @@
+1й пример:
+
+model Lab_4
+  parameter Real w = 0.6;
+  
+  Real x(start=0.4);
+  Real y(start=2.1);
+  
+  equation
+    der(x) = y;
+    der(y) = -w*x;
+    
+  annotation(experiment(StartTime=0, StopTime=51, Tplerance=1e-06, Interval=0.05));
+
+end Lab_4;
+
+2 пример:
+
+model Lab_4
+  parameter Real w = 0.4;
+  parameter Real g = 0.4;
+  
+  Real x(start=0.4);
+  Real y(start=2.1);
+  
+  equation
+    der(x) = y;
+    der(y) = -g*y-w*x;
+    
+  annotation(experiment(StartTime=0, StopTime=51, Tplerance=1e-06, Interval=0.05));
+
+end Lab_4;
+
+3й пример:
+
+model Lab_4
+  parameter Real w = 10;
+  parameter Real g = 0.2;
+  
+  Real x(start=0.4);
+  Real y(start=2.1);
+  
+  equation
+    der(x) = y;
+    der(y) = -g*y-w*x+0.5*cos(2*time);
+    
+  annotation(experiment(StartTime=0, StopTime=51, Tplerance=1e-06, Interval=0.05));
+
+end Lab_4;
